@@ -128,7 +128,6 @@ public class Game extends View {
             starX = starX - 200;
             lifes--;
             if(lifes == 0){
-                Toast.makeText(getContext(), "Your points: " + points, Toast.LENGTH_SHORT).show();
                 menuBack();
                 }
         } if (starX < 0){

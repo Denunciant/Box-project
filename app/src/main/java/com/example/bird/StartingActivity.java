@@ -16,6 +16,7 @@ public class StartingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_starting);
         Button btnPlay = findViewById(R.id.btnPlay);
        // btnPlay.setOnClickListener(new onClickListener);
+        //commit test
 
     }
     public void playGame(View view) {

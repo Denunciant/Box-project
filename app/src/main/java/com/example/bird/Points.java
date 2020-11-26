@@ -33,7 +33,6 @@ public class Points extends AppCompatActivity {
         }else{
             HighScore.setText("High Score :"+ highscore);
         }
-
     }
     public void play(View view){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
