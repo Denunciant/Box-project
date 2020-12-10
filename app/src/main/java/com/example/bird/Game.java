@@ -12,6 +12,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -48,8 +50,10 @@ public class Game extends View {
     private int starY;
     private int starS = 16;
     private Paint starPaint = new Paint();
+    final MediaPlayer mediaPlayer = MediaPlayer.create(getContext().getApplicationContext(), R.raw.hit1);
 
-
+   // private SoundPool soundpool;
+    //private int hitSound;
 
     public Game(Context context) {
         super(context);
@@ -98,6 +102,7 @@ public class Game extends View {
         if (touchF) {
             canvas.drawBitmap(box[1],boxX,boxY, null );
             touchF = false;
+            mediaPlayer.start();
         }else{
             canvas.drawBitmap(box[0], boxX, boxY, null);
         }

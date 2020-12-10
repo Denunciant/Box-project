@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,12 +14,20 @@ import org.w3c.dom.Text;
 
 public class Points extends AppCompatActivity {
 
+    MediaPlayer lost;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points);
         TextView ScoreLabel = findViewById(R.id.ScoreLabel);
         TextView HighScore= findViewById(R.id.HighScoreLabel);
+
+        lost = MediaPlayer.create(this, R.raw.go);
+        lost.start();
+        MediaPlayer backgroundSong;
+        backgroundSong = MediaPlayer.create(this, R.raw.bgsound);
+       // backgroundSong.start();
 
         int points = getIntent().getIntExtra("Points", 0);
         ScoreLabel.setText(points + " ");
