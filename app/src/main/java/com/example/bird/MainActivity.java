@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         game = new Game(this);
         setContentView(game);
         backgroundSong = MediaPlayer.create(this, R.raw.bgsound);
-        backgroundSong.start();
+       // backgroundSong.start();
 
         Timer time = new Timer();
         time.schedule(new TimerTask() {

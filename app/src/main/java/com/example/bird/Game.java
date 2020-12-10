@@ -51,7 +51,8 @@ public class Game extends View {
     private int starS = 16;
     private Paint starPaint = new Paint();
     final MediaPlayer mediaPlayer = MediaPlayer.create(getContext().getApplicationContext(), R.raw.hit1);
-
+    final MediaPlayer mediaPlayer2 = MediaPlayer.create(getContext().getApplicationContext(), R.raw.gothit);
+    final MediaPlayer mediaPlayer3 = MediaPlayer.create(getContext().getApplicationContext(), R.raw.point);
    // private SoundPool soundpool;
     //private int hitSound;
 
@@ -132,6 +133,7 @@ public class Game extends View {
         if(hitCheck(starX, starY)){
             starX = starX - 200;
             lifes--;
+            mediaPlayer2.start();
             if(lifes == 0){
                 menuBack();
                 }
@@ -145,6 +147,7 @@ public class Game extends View {
         if(hitCheck(pointX, pointY))
         {
             points = points + 10;
+            mediaPlayer3.start();
             pointX = -120;
         }
         if(pointX <0){
