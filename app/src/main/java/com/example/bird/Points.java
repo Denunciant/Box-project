@@ -46,4 +46,7 @@ public class Points extends AppCompatActivity {
     public void play(View view){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
+    public void toMenu(View view){
+        startActivity(new Intent(getApplicationContext(), StartingActivity.class));
+    }
 }

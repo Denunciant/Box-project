@@ -30,5 +30,12 @@ public class StartingActivity extends AppCompatActivity {
         finish();
 
     }
+    public void aboutInfo(View view) {
+        // backgroundSong.stop();
+        Intent intent = new Intent(this, info.class);
+        startActivity(intent);
+        finish();
+
+    }
 
 }

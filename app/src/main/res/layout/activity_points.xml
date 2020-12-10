@@ -26,12 +26,20 @@
         android:text="High Score : 300"
         android:textSize="20sp"
         android:layout_marginTop="80dp"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play"
-        android:textAllCaps="false"
         android:onClick="play"
-        />
+        android:text="Play again"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/toMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toMenu"
+        android:text="Menu"
+        android:textAllCaps="false" />
 
 </LinearLayout>
