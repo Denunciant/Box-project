@@ -19,17 +19,11 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler = new Handler();
     private final static long TIME = 35;
 
-    MediaPlayer backgroundSong;
-    private SoundPool soundpool;
-    private int hitSound;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = new Game(this);
         setContentView(game);
-        backgroundSong = MediaPlayer.create(this, R.raw.bgsound);
-       // backgroundSong.start();
 
         Timer time = new Timer();
         time.schedule(new TimerTask() {
