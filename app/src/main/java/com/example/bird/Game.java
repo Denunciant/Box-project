@@ -24,7 +24,6 @@ public class Game extends View {
     private Bitmap background;
 
     private Paint score = new Paint();
-    private Paint level = new Paint();
 
     private int points;
 
@@ -50,6 +49,13 @@ public class Game extends View {
     private int starY;
     private int starS = 16;
     private Paint starPaint = new Paint();
+
+    private Paint barricade = new Paint();
+    private int barricadeX;
+    private int barricadeLeft;
+    private int barricadeY;
+    private int barricadeS = 10;
+    private int barricadeHeight = 100;
     final MediaPlayer mediaPlayer = MediaPlayer.create(getContext().getApplicationContext(), R.raw.hit1);
     final MediaPlayer mediaPlayer2 = MediaPlayer.create(getContext().getApplicationContext(), R.raw.gothit);
     final MediaPlayer mediaPlayer3 = MediaPlayer.create(getContext().getApplicationContext(), R.raw.point);
@@ -69,17 +75,14 @@ public class Game extends View {
         life[1] = BitmapFactory.decodeResource(getResources(), R.drawable.heart_g);
         background = BitmapFactory.decodeResource(getResources(), R.drawable.background);
         starPaint.setColor(Color.RED);
-        level.setColor(Color.BLACK);
-        level.setTextSize(40);
-        level.setTypeface(Typeface.DEFAULT_BOLD);
-        level.setTextAlign(Paint.Align.CENTER);
-
-
         pointPaint.setColor(Color.BLACK);
+        barricade.setColor(Color.MAGENTA);
 
         boxY = 500;
         lifes = 3;
         points = 0;
+
+
 
     }
 
@@ -112,12 +115,14 @@ public class Game extends View {
        // canvas.drawBitmap(box,0,0,null);
 
         canvas.drawText("Your score:"+ points ,20,67,score);
-        canvas.drawText("Level: 1", canvasW / 2, 67 ,level);
        // canvas.drawBitmap(life[0], 830, 30, null);
        // canvas.drawBitmap(life[0], 890, 30, null);
        // canvas.drawBitmap(life[1], 950, 30, null);
         canvas.drawCircle(pointX,pointY, 10, pointPaint);
         canvas.drawCircle(starX, starY, 15, starPaint);
+        canvas.drawRect(barricadeX,barricadeY,barricadeLeft,barricadeHeight, barricade);
+
+
 
         for(int i=0; i<3; i++){
             int x = (int)(750 + life[0].getWidth()*1.5 *i );
@@ -155,11 +160,28 @@ public class Game extends View {
             pointY = (int) Math.floor(Math.random() *(maxBoxy- minBoxy)) + minBoxy;
         }
 
+        barricadeX -= barricadeS;
+        barricadeLeft = barricadeX + 10;
+        if(hitCheckRect(barricadeY, barricadeHeight, barricadeLeft, barricadeX)){
+            lifes = lifes - 3;
+            if(lifes <= 0){
+                menuBack();
+            }
+        } if (barricadeX < 0){
+            barricadeX = canvasW + 200;
+            barricadeY = (int) Math.floor(Math.random() *(maxBoxy- minBoxy)) + minBoxy;
+        }
+
 
     }
     public boolean hitCheck(int x, int y){
         if(boxX<x && x<(boxX + box[0].getWidth() ) && boxY < y && y< (boxY + box[0].getHeight())){
-        return true;}
+            return true;}
+        return false;
+    }
+    public boolean hitCheckRect(int x, int y, int z, int z2){
+        if(boxY<x && boxY + box[0].getHeight()>y && boxX < z && (boxX + box[0].getWidth()> z2)){
+            return true;}
         return false;
     }
     public void menuBack(){
