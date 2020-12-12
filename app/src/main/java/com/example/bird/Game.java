@@ -76,7 +76,7 @@ public class Game extends View {
         background = BitmapFactory.decodeResource(getResources(), R.drawable.background);
         starPaint.setColor(Color.RED);
         pointPaint.setColor(Color.BLACK);
-        barricade.setColor(Color.MAGENTA);
+        barricade.setColor(Color.BLACK);
 
         boxY = 500;
         lifes = 3;
