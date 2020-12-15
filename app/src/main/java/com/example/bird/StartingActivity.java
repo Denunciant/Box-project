@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class StartingActivity extends AppCompatActivity {
 
+    MediaPlayer mediaPlayer;
     MediaPlayer backgroundSong;
 
     @Override
@@ -19,8 +20,10 @@ public class StartingActivity extends AppCompatActivity {
         Button btnPlay = findViewById(R.id.btnPlay);
        // btnPlay.setOnClickListener(new onClickListener);
         //commit test
+        mediaPlayer = MediaPlayer.create(this, R.raw.welcome);
         backgroundSong = MediaPlayer.create(this, R.raw.bgsound);
         //backgroundSong.start();
+        mediaPlayer.start();
 
     }
     public void playGame(View view) {

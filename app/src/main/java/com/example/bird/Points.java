@@ -1,10 +1,12 @@
 package com.example.bird;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -17,9 +19,14 @@ import org.w3c.dom.Text;
 public class Points extends AppCompatActivity {
 
     MediaPlayer lost;
+    ConstraintLayout constraintLayout;
+    AnimationDrawable animationDrawable ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+       // constraintLayout = findViewById(R.id.MainRootLayout);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points);
         TextView ScoreLabel = findViewById(R.id.ScoreLabel);
@@ -32,6 +39,13 @@ public class Points extends AppCompatActivity {
        // backgroundSong.start();
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim);
         gameOver.startAnimation(animation);
+       // animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+
+       // animationDrawable.setEnterFadeDuration(2500);
+
+      //  animationDrawable.setExitFadeDuration(4500);
+
+     //   animationDrawable.start();
 
         int points = getIntent().getIntExtra("Points", 0);
         ScoreLabel.setText(points + " ");
