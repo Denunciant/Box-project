@@ -21,11 +21,13 @@ public class Points extends AppCompatActivity {
     MediaPlayer lost;
     ConstraintLayout constraintLayout;
     AnimationDrawable animationDrawable ;
+    DBhelper dBhelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
+        dBhelper = new DBhelper(this);
        // constraintLayout = findViewById(R.id.MainRootLayout);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points);
@@ -45,6 +47,8 @@ public class Points extends AppCompatActivity {
 
       //  animationDrawable.setExitFadeDuration(4500);
 
+
+
      //   animationDrawable.start();
 
         int points = getIntent().getIntExtra("Points", 0);
@@ -60,6 +64,7 @@ public class Points extends AppCompatActivity {
         }else{
             HighScore.setText("High Score :"+ highscore);
         }
+        dBhelper.addData(points);
     }
     public void play(View view){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -67,4 +72,7 @@ public class Points extends AppCompatActivity {
     public void toMenu(View view){
         startActivity(new Intent(getApplicationContext(), StartingActivity.class));
     }
+
+
+
 }

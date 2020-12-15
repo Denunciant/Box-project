@@ -23,6 +23,7 @@ public class Game extends View {
   //  private Bitmap box;
     private Bitmap background;
 
+
     private Paint score = new Paint();
 
     private int points;
