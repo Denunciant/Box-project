@@ -37,5 +37,12 @@ public class StartingActivity extends AppCompatActivity {
         finish();
 
     }
+    public void toScore(View view) {
+        // backgroundSong.stop();
+        Intent intent = new Intent(this, Score.class);
+        startActivity(intent);
+        finish();
+
+    }
 
 }

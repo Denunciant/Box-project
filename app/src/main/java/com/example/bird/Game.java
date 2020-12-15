@@ -73,7 +73,7 @@ public class Game extends View {
         score.setTypeface(Typeface.DEFAULT_BOLD);
         life[0] = BitmapFactory.decodeResource(getResources(), R.drawable.heart);
         life[1] = BitmapFactory.decodeResource(getResources(), R.drawable.heart_g);
-        background = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        background = BitmapFactory.decodeResource(getResources(), R.drawable.backgroundf);
         starPaint.setColor(Color.RED);
         pointPaint.setColor(Color.BLACK);
         barricade.setColor(Color.BLACK);

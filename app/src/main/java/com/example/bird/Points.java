@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -22,12 +24,14 @@ public class Points extends AppCompatActivity {
         setContentView(R.layout.activity_points);
         TextView ScoreLabel = findViewById(R.id.ScoreLabel);
         TextView HighScore= findViewById(R.id.HighScoreLabel);
-
+        TextView gameOver= findViewById(R.id.gameOver);
         lost = MediaPlayer.create(this, R.raw.go);
         lost.start();
         MediaPlayer backgroundSong;
         backgroundSong = MediaPlayer.create(this, R.raw.bgsound);
        // backgroundSong.start();
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim);
+        gameOver.startAnimation(animation);
 
         int points = getIntent().getIntExtra("Points", 0);
         ScoreLabel.setText(points + " ");
